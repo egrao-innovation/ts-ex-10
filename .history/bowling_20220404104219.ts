@@ -16,9 +16,9 @@ export class Bowling {
       throw new Error('Pin count exceeds pins on the lane');
     }
 
-    // else if(this.gameOver){
-    //   throw new Error('Cannot roll after game is over');
-    // }
+    else if(this.gameOver){
+      throw new Error('Cannot roll after game is over');
+    }
 
     
 

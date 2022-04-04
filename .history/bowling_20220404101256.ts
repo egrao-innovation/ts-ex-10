@@ -16,9 +16,9 @@ export class Bowling {
       throw new Error('Pin count exceeds pins on the lane');
     }
 
-    // else if(this.gameOver){
-    //   throw new Error('Cannot roll after game is over');
-    // }
+    else if(this.gameOver){
+      throw new Error('Cannot roll after game is over');
+    }
 
     
 
@@ -32,10 +32,10 @@ export class Bowling {
         throw new Error('Pin count exceeds pins on the lane');
       }
       this.game.push(pins)
-      // if(this.cont === 2){
-      //   this.gameOver = true;
-      //   console.log("end ENDDDDDDDDD")
-      // }
+      if(this.cont === 2){
+        this.gameOver = true;
+        // console.log("end ENDDDDDDDDD")
+      }
     }
     else{
       this.currentRoll = (this.cont === 2) ? this.currentRoll+1 : this.currentRoll;
@@ -47,10 +47,10 @@ export class Bowling {
       this.game.push(pins)
     }
 //gameover checks
-    // if(this.currentRoll === 10 && this.cont === 1){
-    //   this.gameOver = true;
-    //   console.log("end ENDDDDDDDDD")
-    // }
+    if(this.currentRoll === 10 && this.cont === 1){
+      this.gameOver = true;
+      // console.log("end ENDDDDDDDDD")
+    }
 
     if(pins === 10 && !(this.currentRoll === 10)){
       this.cont++;
@@ -58,15 +58,15 @@ export class Bowling {
     }
     else if(pins === 10 && this.currentRoll === 10){
       this.standingPins = 10;
-      // this.gameOver = false;
+      this.gameOver = false;
     }
     this.cont++;
   }
 
   public score(): number {
-    // if(!this.gameOver){
-    //   throw new Error('Score cannot be taken until the end of the game');
-    // }
+    if(!this.gameOver){
+      throw new Error('Score cannot be taken until the end of the game');
+    }
     for (var i = 0; i < this.game.length; i++) {
       if(this.game[i] === 10){
         this.totalScore += this.game[i] + this.game[i+1] + this.game[i+2]
